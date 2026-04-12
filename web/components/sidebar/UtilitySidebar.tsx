@@ -40,7 +40,7 @@ export default function UtilitySidebar() {
 
   const handleNewChat = useCallback(() => {
     setActiveSessionId(null);
-    router.push("/");
+    router.push("/chat");
   }, [router, setActiveSessionId]);
 
   const handleSelectSession = useCallback(

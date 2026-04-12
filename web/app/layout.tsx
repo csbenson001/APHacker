@@ -4,6 +4,7 @@ import './globals.css'
 import ThemeScript from '@/components/ThemeScript'
 import { AppShellProvider } from '@/context/AppShellContext'
 import { I18nClientBridge } from '@/i18n/I18nClientBridge'
+import { ClerkProvider } from '@clerk/nextjs'
 
 const fontSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -28,19 +29,22 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${fontSans.variable} ${fontSerif.variable}`}
-    >
-      <head>
-        <ThemeScript />
-      </head>
-      <body className="font-sans bg-[var(--background)] text-[var(--foreground)]">
-        <AppShellProvider>
-          <I18nClientBridge>{children}</I18nClientBridge>
-        </AppShellProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html
+        lang="en"
+        suppressHydrationWarning
+        className={`${fontSans.variable} ${fontSerif.variable}`}
+      >
+        <head>
+          <ThemeScript />
+        </head>
+        <body className="font-sans bg-[var(--background)] text-[var(--foreground)]">
+          <AppShellProvider>
+            <I18nClientBridge>{children}</I18nClientBridge>
+          </AppShellProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
+

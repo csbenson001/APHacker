@@ -75,7 +75,7 @@ export function SidebarShell({
       onNewChat();
       return;
     }
-    router.push("/");
+    router.push("/chat");
   };
 
   /* ---- Collapsed state ---- */
@@ -149,7 +149,7 @@ export function SidebarShell({
     <aside className="flex w-[220px] h-screen shrink-0 flex-col bg-[var(--secondary)] transition-all duration-200">
       {/* Header: logo + collapse toggle */}
       <div className="flex h-12 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/chat" className="flex items-center gap-2">
           <Image src="/logo-ver2.png" alt="APHacker" width={20} height={20} />
           <span className="text-[15px] font-semibold tracking-tight text-[var(--foreground)]">
             APHacker
