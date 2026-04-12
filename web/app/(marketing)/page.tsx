@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 import {
   BookOpen,
   Brain,
@@ -60,9 +62,7 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#000d1f] via-[#00356B] to-[#001a3a]" />
-      {/* Mesh gradient glow */}
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#4A90D9]/20 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#a3e635]/10 rounded-full blur-[100px]" />
 
@@ -157,7 +157,6 @@ function Hero() {
             </div>
           </div>
 
-          {/* Floating stat card */}
           <div className="absolute -bottom-4 -left-6 rounded-xl bg-white shadow-2xl p-4 flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[#a3e635]/10 flex items-center justify-center">
               <TrendingUp className="w-5 h-5 text-[#00356B]" />
@@ -410,7 +409,13 @@ function Footer() {
 }
 
 /* ─── Page ─── */
-export default function MarketingPage() {
+export default async function MarketingPage() {
+  // If user is already signed in, redirect to the app
+  const { userId } = await auth();
+  if (userId) {
+    redirect("/chat");
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Nav />
