@@ -48,7 +48,7 @@ export default function ProgressPanel({
       return <CheckCircle2 className="w-4 h-4 text-emerald-500" />;
     }
     if (status === "generating") {
-      return <Loader2 className="w-4 h-4 text-indigo-500 animate-spin" />;
+      return <Loader2 className="w-4 h-4 text-[#4A90D9] animate-spin" />;
     }
     if (status === "failed") {
       return <XCircle className="w-4 h-4 text-rose-500" />;
@@ -68,7 +68,7 @@ export default function ProgressPanel({
       </div>
       <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden mb-4">
         <div
-          className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+          className="h-full bg-gradient-to-r from-[#4A90D9] to-[#4A90D9] rounded-full transition-all duration-500"
           style={{ width: `${sessionState.progress}%` }}
         />
       </div>
@@ -90,7 +90,7 @@ export default function ProgressPanel({
               key={`${knowledge.knowledge_title}-${index}`}
               className={`rounded-xl border px-3 py-3 transition ${
                 isCurrent
-                  ? "border-indigo-300 bg-indigo-50 dark:border-indigo-600 dark:bg-indigo-950/30"
+                  ? "border-[#4A90D9] bg-[#00356B]/10 dark:border-[#00356B] dark:bg-[#000d1f]/30"
                   : "border-slate-200 bg-slate-50/70 dark:border-slate-700 dark:bg-slate-900/50"
               }`}
             >
@@ -144,7 +144,7 @@ export default function ProgressPanel({
           <button
             onClick={onStartLearning}
             disabled={isLoading}
-            className="flex-1 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm font-medium"
+            className="flex-1 px-4 py-2 bg-[#00356B] text-white rounded-lg hover:bg-[#002952] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm font-medium"
           >
             {isLoading ? (
               <>
@@ -174,7 +174,7 @@ export default function ProgressPanel({
           <button
             onClick={onCompleteLearning}
             disabled={isLoading || !allPagesReady}
-            className="flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm font-medium"
+            className="flex-1 px-4 py-2 bg-[#00356B] text-white rounded-lg hover:bg-[#002952] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm font-medium"
           >
             {isLoading ? (
               <>

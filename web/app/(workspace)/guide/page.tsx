@@ -174,7 +174,7 @@ export default function GuidePage() {
           <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden">
             <div className="p-3 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
               <h2 className="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                <Sparkles className="w-5 h-5 text-[#00356B] dark:text-[#4A90D9]" />
                 {t("Describe what you want to learn")}
               </h2>
               <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
@@ -192,7 +192,7 @@ export default function GuidePage() {
                   "For example: Teach me linear algebra from the basics, with intuition, key formulas, and common mistakes.",
                 )}
                 rows={8}
-                className="w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-indigo-900/40"
+                className="w-full resize-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#4A90D9] focus:ring-2 focus:ring-[#00356B]/15 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-[#001a3a]/40"
               />
 
               <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 dark:border-slate-700 dark:bg-slate-900/50">
@@ -230,7 +230,7 @@ export default function GuidePage() {
               <button
                 onClick={handleCreateSession}
                 disabled={isLoading || !topicInput.trim()}
-                className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#00356B] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#4A90D9] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {isLoading ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -389,7 +389,7 @@ export default function GuidePage() {
                 />
               ) : (
                 <div className="h-full bg-white dark:bg-slate-800 rounded-b-2xl border border-t-0 border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center text-slate-300 dark:text-slate-600 p-8">
-                  <Loader2 className="w-12 h-12 text-indigo-400 dark:text-indigo-500 animate-spin mb-4" />
+                  <Loader2 className="w-12 h-12 text-[#4A90D9] dark:text-[#4A90D9] animate-spin mb-4" />
                   <p className="text-slate-500 dark:text-slate-400">
                     {loadingMessage || t("Loading learning content...")}
                   </p>

@@ -159,7 +159,7 @@ export default function HTMLViewer({
   if (!html) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center bg-white dark:bg-slate-800 rounded-b-2xl border border-t-0 border-slate-200 dark:border-slate-700">
-        <Loader2 className="w-12 h-12 text-indigo-400 dark:text-indigo-500 animate-spin mb-4" />
+        <Loader2 className="w-12 h-12 text-[#4A90D9] dark:text-[#4A90D9] animate-spin mb-4" />
         <p className="text-slate-500 dark:text-slate-400">
           {loadingMessage || t("Loading learning content...")}
         </p>

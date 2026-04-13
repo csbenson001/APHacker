@@ -58,7 +58,7 @@ export default function ChatPanel({
       </div>
 
       {isLearning && currentKnowledgeTitle && (
-        <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-700 bg-indigo-50/60 text-xs text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-200">
+        <div className="px-4 py-2 border-b border-slate-100 dark:border-slate-700 bg-[#00356B]/10/60 text-xs text-[#002952] dark:bg-[#000d1f]/30 dark:text-[#4A90D9]">
           {t("Current page")}: {currentKnowledgeIndex !== undefined ? currentKnowledgeIndex + 1 : ""}
           {currentKnowledgeIndex !== undefined ? ". " : ""}
           {currentKnowledgeTitle}
@@ -77,7 +77,7 @@ export default function ChatPanel({
             <div
               className={`max-w-[90%] rounded-2xl px-4 py-3 text-sm ${
                 msg.role === "user"
-                  ? "bg-indigo-600 text-white rounded-tr-none shadow-md shadow-indigo-500/20"
+                  ? "bg-[#00356B] text-white rounded-tr-none shadow-md shadow-[#4A90D9]/20"
                   : msg.role === "system" && msg.content.includes("⏳")
                     ? "bg-amber-50 border border-amber-200 text-amber-900 rounded-tl-none"
                     : msg.role === "system"
@@ -116,12 +116,12 @@ export default function ChatPanel({
               }
               placeholder={t("Have any questions? Feel free to ask...")}
               disabled={sendingMessage}
-              className="flex-1 pl-4 pr-10 py-2.5 bg-slate-100 dark:bg-slate-700 border-transparent focus:bg-white dark:focus:bg-slate-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 rounded-xl text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 pl-4 pr-10 py-2.5 bg-slate-100 dark:bg-slate-700 border-transparent focus:bg-white dark:focus:bg-slate-600 focus:border-[#4A90D9] focus:ring-2 focus:ring-[#4A90D9]/20 rounded-xl text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 transition-all outline-none disabled:opacity-50 disabled:cursor-not-allowed"
             />
             <button
               onClick={handleSendMessage}
               disabled={!inputMessage.trim() || sendingMessage}
-              className="p-2.5 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/20"
+              className="p-2.5 bg-[#00356B] text-white rounded-xl hover:bg-[#002952] active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#4A90D9]/20"
             >
               {sendingMessage ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

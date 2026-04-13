@@ -61,7 +61,7 @@ export default function KnowledgeTabBar({
     if (status === "ready")
       return <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />;
     if (status === "generating")
-      return <Loader2 className="w-3.5 h-3.5 text-indigo-500 animate-spin" />;
+      return <Loader2 className="w-3.5 h-3.5 text-[#4A90D9] animate-spin" />;
     if (status === "failed")
       return <XCircle className="w-3.5 h-3.5 text-rose-500" />;
     return <AlertCircle className="w-3.5 h-3.5 text-slate-400" />;
@@ -95,7 +95,7 @@ export default function KnowledgeTabBar({
                 title={knowledge.knowledge_title}
                 className={`shrink-0 inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium transition whitespace-nowrap ${
                   isCurrent && !isCompleted
-                    ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-200"
+                    ? "bg-[#00356B]/15 text-[#002952] dark:bg-[#001a3a]/40 dark:text-[#4A90D9]"
                     : isReady
                       ? "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
                       : "bg-slate-50 text-slate-400 dark:bg-slate-800 dark:text-slate-500 cursor-default"
@@ -127,7 +127,7 @@ export default function KnowledgeTabBar({
             <button
               onClick={onStartLearning}
               disabled={isLoading}
-              className="inline-flex items-center gap-1 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-indigo-700 disabled:opacity-50 transition"
+              className="inline-flex items-center gap-1 rounded-lg bg-[#00356B] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#002952] disabled:opacity-50 transition"
             >
               {isLoading ? (
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -142,7 +142,7 @@ export default function KnowledgeTabBar({
             <button
               onClick={onCompleteLearning}
               disabled={isLoading || !allPagesReady}
-              className="inline-flex items-center gap-1 rounded-lg bg-purple-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-purple-700 disabled:opacity-50 transition"
+              className="inline-flex items-center gap-1 rounded-lg bg-[#00356B] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#002952] disabled:opacity-50 transition"
             >
               {isLoading ? (
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -164,7 +164,7 @@ export default function KnowledgeTabBar({
 
       <div className="h-1 bg-slate-100 dark:bg-slate-700 mx-3 mb-1 rounded-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full transition-all duration-500"
+          className="h-full bg-gradient-to-r from-[#4A90D9] to-[#4A90D9] rounded-full transition-all duration-500"
           style={{
             width: `${totalCount > 0 ? (readyCount / totalCount) * 100 : 0}%`,
           }}

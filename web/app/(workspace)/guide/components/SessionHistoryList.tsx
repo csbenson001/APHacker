@@ -85,7 +85,7 @@ export default function SessionHistoryList({
           <button
             key={session.session_id}
             onClick={() => onLoadSession(session.session_id)}
-            className="text-left rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-md hover:border-indigo-200 transition dark:border-slate-700 dark:bg-slate-800 dark:hover:border-indigo-700"
+            className="text-left rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-md hover:border-[#4A90D9] transition dark:border-slate-700 dark:bg-slate-800 dark:hover:border-[#002952]"
           >
             <p className="text-sm font-medium text-slate-800 dark:text-slate-100 line-clamp-2 mb-2">
               {session.topic || t("Untitled")}
@@ -100,7 +100,7 @@ export default function SessionHistoryList({
             <div className="flex items-center gap-2">
               <div className="flex-1 h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-[#4A90D9] to-[#4A90D9] rounded-full"
                   style={{ width: `${session.progress}%` }}
                 />
               </div>

@@ -128,7 +128,7 @@ export default function SessionSwitcher({
                 onNewSession();
                 setOpen(false);
               }}
-              className="w-full flex items-center justify-center gap-1.5 rounded-lg bg-indigo-50 px-3 py-2 text-xs font-medium text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-900/50 transition"
+              className="w-full flex items-center justify-center gap-1.5 rounded-lg bg-[#00356B]/10 px-3 py-2 text-xs font-medium text-[#002952] hover:bg-[#00356B]/15 dark:bg-[#001a3a]/30 dark:text-[#4A90D9] dark:hover:bg-[#001a3a]/50 transition"
             >
               <Plus className="w-3.5 h-3.5" />
               {t("New Session")}
