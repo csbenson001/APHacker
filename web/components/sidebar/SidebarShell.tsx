@@ -81,10 +81,10 @@ export function SidebarShell({
   /* ---- Collapsed state ---- */
   if (collapsed) {
     return (
-      <aside className="flex w-[56px] h-screen shrink-0 flex-col items-center bg-[var(--secondary)] py-3 transition-all duration-200">
+      <aside className="flex w-12 h-screen shrink-0 flex-col items-center bg-[#00356B] py-2 transition-all duration-200">
         <button
           onClick={() => setCollapsed(false)}
-          className="mb-4 rounded-md p-1.5 text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)]"
+          className="mb-4 rounded-md p-1.5 text-white/60 transition-colors hover:text-white"
           aria-label={t("Expand sidebar")}
         >
           <PanelLeftOpen size={15} />
@@ -92,7 +92,7 @@ export function SidebarShell({
 
         <button
           onClick={handleNewChat}
-          className="mb-3 rounded-lg p-2 text-[var(--muted-foreground)] transition-colors hover:bg-[var(--background)]/60 hover:text-[var(--foreground)]"
+          className="mb-3 rounded-lg p-2 text-white/60 transition-colors hover:bg-white/10 hover:text-white"
           aria-label={t("New Chat")}
         >
           <Plus size={16} strokeWidth={2} />
@@ -107,8 +107,8 @@ export function SidebarShell({
                   href={item.href}
                   className={`rounded-lg p-2 transition-colors ${
                     active
-                      ? "bg-[var(--background)]/70 text-[var(--foreground)]"
-                      : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
+                      ? "bg-white/15 text-white"
+                      : "text-white/60 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   <item.icon size={16} strokeWidth={active ? 1.9 : 1.5} />
@@ -130,8 +130,8 @@ export function SidebarShell({
                 href={item.href}
                 className={`rounded-lg p-2 transition-colors ${
                   active
-                    ? "bg-[var(--background)]/70 text-[var(--foreground)]"
-                    : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
+                    ? "bg-white/15 text-white"
+                    : "text-white/60 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 <item.icon size={16} strokeWidth={active ? 1.9 : 1.5} />
@@ -146,18 +146,18 @@ export function SidebarShell({
 
   /* ---- Expanded state ---- */
   return (
-    <aside className="flex w-[220px] h-screen shrink-0 flex-col bg-[var(--secondary)] transition-all duration-200">
+    <aside className="flex w-[220px] h-screen shrink-0 flex-col bg-[#00356B] transition-all duration-200">
       {/* Header: logo + collapse toggle */}
       <div className="flex h-12 items-center justify-between px-4">
         <Link href="/chat" className="flex items-center gap-2">
           <Image src="/logo-ver2.png" alt="APHacker" width={20} height={20} />
-          <span className="text-[15px] font-semibold tracking-tight text-[var(--foreground)]">
+          <span className="text-[15px] font-semibold tracking-tight text-white">
             APHacker
           </span>
         </Link>
         <button
           onClick={() => setCollapsed(true)}
-          className="rounded-md p-1 text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)]"
+          className="rounded-md p-1 text-white/50 transition-colors hover:text-white"
           aria-label={t("Collapse sidebar")}
         >
           <PanelLeftClose size={15} />
@@ -170,7 +170,7 @@ export function SidebarShell({
           {/* New chat */}
           <button
             onClick={handleNewChat}
-            className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13.5px] text-[var(--muted-foreground)] transition-colors hover:bg-[var(--background)]/60 hover:text-[var(--foreground)]"
+            className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13.5px] text-white/60 transition-colors hover:bg-white/10 hover:text-white"
           >
             <Plus size={16} strokeWidth={2} />
             <span>{t("New Chat")}</span>
@@ -186,8 +186,8 @@ export function SidebarShell({
                   href={item.href}
                   className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13.5px] transition-colors ${
                     active
-                      ? "bg-[var(--background)]/70 font-medium text-[var(--foreground)]"
-                      : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
+                      ? "bg-white/15 font-medium text-white"
+                      : "text-white/60 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   <item.icon size={16} strokeWidth={active ? 1.9 : 1.5} />
@@ -217,7 +217,7 @@ export function SidebarShell({
       <div className="flex-1" />
 
       {/* Secondary nav + footer */}
-      <div className="border-t border-[var(--border)]/40 px-2 py-2">
+      <div className="border-t border-white/15 px-2 py-2">
         {SECONDARY_NAV.map((item) => {
           const active = pathname.startsWith(item.href);
           return (
@@ -226,8 +226,8 @@ export function SidebarShell({
               href={item.href}
               className={`flex items-center gap-2.5 rounded-lg px-3 py-2 text-[13.5px] transition-colors ${
                 active
-                  ? "bg-[var(--background)]/70 font-medium text-[var(--foreground)]"
-                  : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
+                  ? "bg-white/15 font-medium text-white"
+                  : "text-white/60 hover:bg-white/10 hover:text-white"
               }`}
             >
               <item.icon size={16} strokeWidth={active ? 1.9 : 1.5} />

@@ -36,7 +36,7 @@ function statusColor(status?: SessionRuntimeStatus): string {
     case "cancelled":
       return "bg-amber-500";
     default:
-      return "bg-[var(--muted-foreground)]/25";
+      return "bg-white/25";
   }
 }
 
@@ -146,9 +146,9 @@ export default function SessionList({
   if (loading) {
     if (compact) {
       return (
-        <div className="ml-5 space-y-1.5 border-l border-[var(--border)]/30 py-1 pl-3">
+        <div className="ml-5 space-y-1.5 border-l border-white/20 py-1 pl-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-4 w-3/4 animate-pulse rounded bg-[var(--muted)]/40" />
+            <div key={i} className="h-4 w-3/4 animate-pulse rounded bg-white/15" />
           ))}
         </div>
       );
@@ -156,7 +156,7 @@ export default function SessionList({
     return (
       <div className="space-y-2 px-1.5 py-2">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="h-10 animate-pulse rounded-md bg-[var(--muted)]/60" />
+          <div key={i} className="h-10 animate-pulse rounded-md bg-white/15" />
         ))}
       </div>
     );
@@ -165,7 +165,7 @@ export default function SessionList({
   if (sessions.length === 0) {
     if (compact) return null;
     return (
-      <div className="px-3 py-4 text-center text-[11px] text-[var(--muted-foreground)]/70">
+      <div className="px-3 py-4 text-center text-[11px] text-white/40">
         {t("No conversations yet")}
       </div>
     );
@@ -174,13 +174,13 @@ export default function SessionList({
   /* ---- Compact tree-line style (under Chat nav item) ---- */
   if (compact) {
     return (
-      <div className="ml-5 border-l border-[var(--border)]/30 py-1">
+      <div className="ml-5 border-l border-white/20 py-1">
         {grouped.map(([label, items], groupIdx) => (
           <div key={label}>
             {groupIdx > 0 && (
-              <div className="my-1 ml-3 mr-2 border-t border-[var(--border)]/20" />
+              <div className="my-1 ml-3 mr-2 border-t border-white/15" />
             )}
-            <div className="px-3 py-0.5 text-[10px] font-medium uppercase tracking-wider text-[var(--muted-foreground)]/40">
+            <div className="px-3 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white/35">
               {label}
             </div>
             {items.map((session) => {
@@ -200,12 +200,12 @@ export default function SessionList({
                   tabIndex={0}
                   className={`group flex items-center gap-2 rounded-r-lg py-1 pl-3 pr-2 transition-colors ${
                     active
-                      ? "bg-[var(--background)]/50 text-[var(--foreground)]"
-                      : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/40 hover:text-[var(--foreground)]"
+                      ? "bg-white/15 text-white"
+                      : "text-white/60 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   <span className={`block h-1.5 w-1.5 shrink-0 rounded-full ${
-                    active ? "bg-[var(--foreground)]/60" : statusColor(session.status)
+                    active ? "bg-white/60" : statusColor(session.status)
                   }`} />
                   {isEditing ? (
                     <input
@@ -221,7 +221,7 @@ export default function SessionList({
                         }
                       }}
                       onClick={(event) => event.stopPropagation()}
-                      className="min-w-0 flex-1 rounded border border-[var(--border)] bg-[var(--background)] px-1.5 py-px text-[12px] text-[var(--foreground)] outline-none focus:ring-1 focus:ring-[var(--primary)]/40"
+                      className="min-w-0 flex-1 rounded border border-white/30 bg-white/10 px-1.5 py-px text-[12px] text-white outline-none focus:ring-1 focus:ring-white/40"
                     />
                   ) : (
                     <span className={`min-w-0 flex-1 truncate text-[13px] ${active ? "font-medium" : ""}`}>
@@ -232,7 +232,7 @@ export default function SessionList({
                     {isEditing ? (
                       <button
                         onClick={(event) => { event.stopPropagation(); void commitEdit(); }}
-                        className="rounded p-0.5 text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                        className="rounded p-0.5 text-white/50 hover:text-white"
                         aria-label={t("Save title")}
                       >
                         <Check size={10} />
@@ -240,7 +240,7 @@ export default function SessionList({
                     ) : (
                       <button
                         onClick={(event) => { event.stopPropagation(); startEdit(session); }}
-                        className="rounded p-0.5 text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                        className="rounded p-0.5 text-white/50 hover:text-white"
                         aria-label={t("Rename chat")}
                       >
                         <Pencil size={10} />
@@ -248,7 +248,7 @@ export default function SessionList({
                     )}
                     <button
                       onClick={(event) => { event.stopPropagation(); void onDelete(session.session_id); }}
-                      className="rounded p-0.5 text-[var(--muted-foreground)] hover:text-[var(--destructive)]"
+                      className="rounded p-0.5 text-white/50 hover:text-rose-400"
                       aria-label={t("Delete chat")}
                     >
                       <Trash2 size={10} />
@@ -268,7 +268,7 @@ export default function SessionList({
     <div className="space-y-3">
       {grouped.map(([label, items]) => (
         <div key={label}>
-          <div className="mb-1 px-2 text-[11px] font-semibold uppercase tracking-widest text-[var(--muted-foreground)]">
+          <div className="mb-1 px-2 text-[11px] font-semibold uppercase tracking-widest text-white/40">
             {label}
           </div>
           <div className="space-y-px">
@@ -289,12 +289,12 @@ export default function SessionList({
                   tabIndex={0}
                   className={`group relative w-full rounded-lg px-2.5 py-2 text-left transition-all duration-150 ${
                     active
-                      ? "bg-[var(--background)]/70 text-[var(--foreground)]"
-                      : "text-[var(--muted-foreground)] hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
+                      ? "bg-white/15 text-white"
+                      : "text-white/60 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   {active && (
-                    <span className="absolute left-0 top-1/2 h-4 w-[3px] -translate-y-1/2 rounded-r-full bg-[var(--primary)]" />
+                    <span className="absolute left-0 top-1/2 h-4 w-[3px] -translate-y-1/2 rounded-r-full bg-[#a3e635]" />
                   )}
                   <div className="flex items-start gap-1.5">
                     <div className="min-w-0 flex-1">
@@ -312,7 +312,7 @@ export default function SessionList({
                             }
                           }}
                           onClick={(event) => event.stopPropagation()}
-                          className="w-full rounded border border-[var(--border)] bg-[var(--background)] px-2 py-0.5 text-[12px] text-[var(--foreground)] outline-none focus:ring-1 focus:ring-[var(--primary)]/40"
+                          className="w-full rounded border border-white/30 bg-white/10 px-2 py-0.5 text-[12px] text-white outline-none focus:ring-1 focus:ring-white/40"
                         />
                       ) : (
                         <div className="flex items-center">
@@ -327,7 +327,7 @@ export default function SessionList({
                         </div>
                       )}
                       {!isEditing && (
-                        <div className="mt-0.5 line-clamp-1 text-[11px] leading-tight text-[var(--muted-foreground)]">
+                        <div className="mt-0.5 line-clamp-1 text-[11px] leading-tight text-white/40">
                           {session.last_message || relativeTime(session.updated_at)}
                         </div>
                       )}
@@ -339,7 +339,7 @@ export default function SessionList({
                             event.stopPropagation();
                             void commitEdit();
                           }}
-                          className="rounded p-0.5 text-[var(--muted-foreground)] hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+                          className="rounded p-0.5 text-white/50 hover:bg-white/10 hover:text-white"
                           aria-label={t("Save title")}
                         >
                           <Check size={12} />
@@ -350,7 +350,7 @@ export default function SessionList({
                             event.stopPropagation();
                             startEdit(session);
                           }}
-                          className="rounded p-0.5 text-[var(--muted-foreground)] hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+                          className="rounded p-0.5 text-white/50 hover:bg-white/10 hover:text-white"
                           aria-label={t("Rename chat")}
                         >
                           <Pencil size={11} />
@@ -361,7 +361,7 @@ export default function SessionList({
                           event.stopPropagation();
                           void onDelete(session.session_id);
                         }}
-                        className="rounded p-0.5 text-[var(--muted-foreground)] hover:bg-[var(--background)] hover:text-[var(--destructive)]"
+                        className="rounded p-0.5 text-white/50 hover:bg-white/10 hover:text-rose-400"
                         aria-label={t("Delete chat")}
                       >
                         <Trash2 size={11} />
